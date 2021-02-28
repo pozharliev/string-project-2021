@@ -1,20 +1,34 @@
-// string-project-2021.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <Windows.h>
+#include "front-end.h"
+#include "back-end.h"
+
+using namespace std;
+
+HANDLE hStdout;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    //Check if console output handle is invalid
+    if (hStdout == INVALID_HANDLE_VALUE)
+    {
+        //Tell user that there is a problem
+        cout << "There is problem with the console handler and the game can not load properly!";
+
+        //Exit the program
+        return 0;
+    }
+    
+    //Set text to white
+    SetConsoleTextAttribute(hStdout, 15);
+
+    saveStdHandle();
+    
+    while (true)
+    {
+        printMenu(true, false, false, false, false, false);
+    }
+    
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

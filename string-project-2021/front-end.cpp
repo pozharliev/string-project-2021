@@ -98,7 +98,7 @@ void printSettings(bool firstActive, bool secondActive)
 			system("CLS");
 
 			//Back to menu
-			printMenu(true, false, false, false, false, false);
+			printMenu(false, false, true, false, false, false);
 		}
 
 	}
@@ -169,7 +169,7 @@ void printHowToPlay()
 	cout << "   Write the word shown on the screen, before it fells out!" << endl << "   You can chose on of the 3 difficulties: Easy, Medium and Hard:" << endl;
 	cout << "     For Easy - Write 5 words" << endl; 
 	cout << "     For Medium - Write 10 words" << endl;
-	cout << "     For Hard - Write 5 words" << endl;
+	cout << "     For Hard - Write 15 words and write them in bulgarian" << endl;
 	cout << endl;
 	cout << "   And don't forget to have fun, while playing." << endl << endl;
 
@@ -214,7 +214,7 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 	//Check which choice is active
 	cout << " "; if (firstActive)  cout << "-> ";  else cout << "   "; cout << "New Game " << endl;
 	cout << endl;
-	cout << " "; if (secondActive)  cout << "-> ";  else cout << "   "; cout << "Resume Game" << endl;
+	cout << " "; if (secondActive)  cout << "-> ";  else cout << "   "; cout << "Learn the words" << endl;
 	cout << endl;
 	cout << " "; if (thirdActive)  cout << "-> ";  else cout << "   "; cout << "Settings" << endl;
 	cout << endl;
