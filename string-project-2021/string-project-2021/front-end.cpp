@@ -22,6 +22,87 @@ void goToXY(short x, short y)
 	SetConsoleCursorPosition(hStdoutFrontEnd, cords);
 }
 
+void printAbout()
+{
+	//Clear screen
+	system("CLS");
+
+	//print About
+	cout << "    ==========================================" << endl;
+	cout << "                ____   ____  _    _ _______" << endl;
+	cout << "          /\\   |  _ \\ / __ \\| |  | |__   __|" << endl;
+	cout << "         /  \\  | |_) | |  | | |  | |  | |" << endl;
+	cout << "        / /\\ \\ |  _ <| |  | | |  | |  | |   " << endl;
+	cout << "       / ____ \\| |_) | |__| | |__| |  | |" << endl;
+	cout << "      /_/    \\_\\____/ \\____/ \\____/   |_|" << endl;
+	cout << "    ==========================================" << endl;
+
+	cout << endl;
+	cout << "   String Project 2021" << endl;
+	cout << "   Word game made in vanilla C++." << endl;
+	cout << endl;
+	cout << "   Participants:" << endl;
+	cout << "   Atanas Pozharliev - ABPozharliev19@codingburgas.bg - Front - End Developer" << endl;
+	cout << "   Stoyan Ivanov - SSIvanov19@codingburgas.bg - Quality Assurance" << endl;
+	cout << "   Stas Uzunov - SSUzunov19@codingburgas.bg - C++ Developer" << endl;
+	cout << "   Stefan Hristov - SHHristov19@codingburgas.bg - Scrum Trainer" << endl;
+	cout << endl;
+	cout << "   Team VAVILON" << endl;
+	cout << endl;
+	cout << "   -> Back" << endl;
+
+	//Wait for input
+	const char ch = _getch();
+
+	//Clear screen
+	system("CLS");
+
+	printMenu(false, false, false, false, true, false);
+}
+
+
+void printHowToPlay()
+{
+	//Clear screen
+	system("CLS");
+
+	//print How to play
+	cout << "    ==================================================" << endl;
+	cout << "	 _    _  ______          __  _______ ____" << endl;
+	cout << "	| |  | |/ __ \\ \\        / / |__   __/ __ \\" << endl;
+	cout << "	| |__| | |  | \\ \\  /\\  / /     | | | |  | |" << endl;
+	cout << "	|  __  | |  | |\\ \\/  \\/ /      | | | |  | |" << endl;
+	cout << "	| |  | | |__| | \\  /\\  /       | | | |__| |" << endl;
+	cout << "	|_|  |_|\\____/   \\/  \\/   _    |_|  \\____/ " << endl;
+	cout << "	     |  __ \\| |        /\\\\ \\   / /" << endl;
+	cout << "	     | |__) | |       /  \\\\ \\_/ /" << endl;
+	cout << "	     |  ___/| |      / /\\ \\\\   /" << endl;
+	cout << "	     | |    | |____ / ____ \\| |" << endl;
+	cout << "	     |_|    |______/_/    \\_\\_|" << endl;
+	cout << "    ==================================================" << endl;
+
+	cout << endl;
+	cout << "   Welcome to your path of becoming wizard." << endl << "   Here at the wizard academy you are going to learn how to spell your spells." << endl;
+	cout << endl;
+	cout << "   Write the word shown on the screen, before it fells out!" << endl << "   You can chose on of the 3 difficulties: Easy, Medium and Hard:" << endl;
+	cout << "     For Easy - Write 5 words" << endl; 
+	cout << "     For Medium - Write 10 words" << endl;
+	cout << "     For Hard - Write 5 words" << endl;
+	cout << endl;
+	cout << "   And don't forget to have fun, while playing." << endl << endl;
+
+	cout << " -> Back" << endl;
+
+	//Wait for input
+	const char ch = _getch();
+
+	//Clear screen
+	system("CLS");
+
+	printMenu(false, false, false, true, false, false);
+}
+
+
 //Print the menu
 void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourthActive, bool fifthActive, bool sixthActive)
 {
@@ -157,13 +238,13 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 		if (fourthActive)
 		{
 			//Print How to Play
-			//printHowToPlay();
+			printHowToPlay();
 		}
 
 		if (fifthActive)
 		{
 			//Print About Section
-			//printAbout();
+			printAbout();
 		}
 
 		if (sixthActive)
