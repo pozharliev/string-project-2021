@@ -5,7 +5,16 @@
 
 using namespace std;
 
+//Varible for handling stdout
 HANDLE hStdoutFrontEnd;
+
+/*
+	Varible for dificulties
+	1 - easy
+	2 - medium
+	3 - hard
+*/
+int difficulties = 1;
 
 //Get Handle of STD
 void saveStdHandle() 
@@ -20,6 +29,79 @@ void goToXY(short x, short y)
 	cords.X = x;
 	cords.Y = y;
 	SetConsoleCursorPosition(hStdoutFrontEnd, cords);
+}
+
+//Print the settings
+void printSettings(bool firstActive, bool secondActive)
+{
+	//Clear screen
+	goToXY(0, 0);
+
+	//Print the settings
+	cout << "    ===========================================================" << endl;
+	cout << "       _____ ______ _______ _______ _____ _   _  _____  _____" << endl;
+	cout << "      / ____| ____ |__   __|__   __|_   _| \\ | |/ ____|/ ____|" << endl;
+	cout << "     | (___ | |__     | |     | |    | | |  \\| | |  __| (___" << endl;
+	cout << R"(      \___ \|  __|    | |     | |    | | | . ` | | |_ |\___ \)" << endl;
+	cout << "      ____) | |____   | |     | |   _| |_| |\\  | |__| |____) |" << endl;
+	cout << "     |_____/|______|  |_|     |_|  |_____|_| \\_|\\_____|_____/" << endl;
+	cout << endl;
+	cout << "    ===========================================================" << endl;
+
+	//Check which choice is active
+	cout << " "; if (firstActive)  cout << "-> ";  else cout << "   "; cout << "Difficulti: "; if (difficulties == 1)  cout << "Easy";  else if (difficulties == 2)  cout << "Medium"; else if (difficulties == 3)  cout << "Hard"; cout << endl;
+	cout << " "; if (secondActive)  cout << "-> ";  else cout << "   "; cout << "Back" << endl;
+
+	//Get ch
+	const char ch = _getch();
+
+	//Change active choice
+	if (ch == 's' || ch == 'S' || ch == 'w' || ch == 'W')
+	{
+		if (secondActive)
+		{
+			printSettings(true, false);
+		}
+
+		if (firstActive)
+		{
+			printSettings(false, true);
+		}
+	}
+
+
+	//Check for enter
+	if (ch == '\r')
+	{
+		if (firstActive)
+		{
+			//Change setting
+			if (difficulties == 1 || difficulties == 2)
+			{	
+				difficulties++;
+			}
+			else if (difficulties == 3)
+			{
+				difficulties = 1;
+			}
+
+			//Clear screen
+			system("CLS");
+
+			//print settings
+			printSettings(true, false);
+		}
+
+		if (secondActive)
+		{
+			//Clear screen
+			system("CLS");
+
+			//Back to menu
+			printMenu(true, false, false, false, false, false);
+		}
+
+	}
 }
 
 void printAbout()
@@ -232,7 +314,8 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 		if (thirdActive)
 		{
 			//Print Settings
-			//printSettings(true, false);
+			system("CLS");
+			printSettings(true, false);
 		}
 
 		if (fourthActive)
