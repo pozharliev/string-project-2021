@@ -1,12 +1,41 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include <iomanip>
 #include "front-end.h"
 
 using namespace std;
 
 //Varible for handling stdout
 HANDLE hStdoutFrontEnd;
+
+//Words in English
+string ENword[60] = {
+		"apple", "application", "apply", "appoint", "appointment", "appreciate",
+		"blame", "blanket", "blind", "block", "blood", "blow",
+		"chain", "chair", "chairman", "challenge", "chamber", "champion",
+		"description", "desert", "deserve", "design", "designer", "desire",
+		"enjoy", "enormous", "enough", "ensure", "enter", "enterprise",
+		"family", "famous", "fan", "fantasy", "far", "farm",
+		"goal", "God", "gold", "golden", "golf", "good",
+		"happen", "happy", "hard", "hardly", "hat", "hate",
+		"leave", "left", "leg", "legacy", "legal", "legend",
+		"media", "medical", "medication", "medicine", "medium", "meet"
+};
+
+//Words in bulgarian
+string BGword[60] = {
+		"ябълка", "заявление", "кандидатстване", "назначи", "назначаване", "оценявам",
+		 "вина", "одеяло", "сляп", "блок", "кръв", "удар",
+		 "верига", "стол", "председател", "предизвикателство", "стая", "шампион",
+		 "описание", "пустиня", "заслужавам", "дизайн", "дизайнер", "желание",
+		 "наслаждавай се", "огромен", "достатъчно", "осигури", "влез", "предприятие",
+		 "семейство", "известен", "фен", "фантазия", "далеч", "ферма",
+		 "цел", "Бог", "злато", "златен", "голф", "добро",
+		 "случи се", "щастлив", "твърд", "едва ли", "шапка", "мразя",
+		 "остави", "наляво", "крак", "наследство", "законно", "легенда",
+		 "медия", "медицинска", "медикаменти", "медицина", "средна", "отговарям"
+};
 
 /*
 	Varible for dificulties
@@ -29,6 +58,40 @@ void goToXY(short x, short y)
 	cords.X = x;
 	cords.Y = y;
 	SetConsoleCursorPosition(hStdoutFrontEnd, cords);
+}
+
+void printWords()
+{
+	//Clear screen
+	system("CLS");
+	cout << "    ===================================================" << endl;
+	cout << "	__          ______  _____  _____   _____ " << endl;
+	cout << "	\\ \\        / / __ \\|  __ \\|  __ \\ / ____| " << endl;
+	cout << "	 \\ \\  /\\  / / |  | | |__) | |  | | (___  " << endl;
+	cout << "	  \\ \\/  \\/ /| |  | |  _  /| |  | |\\___ \\ " << endl;
+	cout << "	   \\  /\\  / | |__| | | \\ \\| |__| |____) | " << endl;
+	cout << "	    \\/  \\/   \\____/|_|  \\_\\_____/|_____/ " << endl;
+	cout << endl;
+	cout << "    ===================================================" << endl;
+	cout << endl;
+	cout << endl;
+	cout << setw(20) << " Word in English " << setw(20) << "Word in Bulgarian" << endl;
+	cout << endl;
+	for (int i = 0; i < 60; i++)
+	{
+		cout << setw(20) << ENword[i] << setw(20) << BGword[i] << endl;
+	}
+
+	cout << "   -> Back" << endl;
+
+	//Wait for input
+	const char ch = _getch();
+
+	//Clear screen
+	system("CLS");
+
+	//Return to main menu
+	printMenu(false, true, false, false, false, false);
 }
 
 //Print the settings
@@ -307,8 +370,8 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 
 		if (secondActive)
 		{
-			//Print board
-			//printBoard(true);
+			//Print words
+			printWords();
 		}
 
 		if (thirdActive)

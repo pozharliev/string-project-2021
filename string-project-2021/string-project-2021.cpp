@@ -9,6 +9,9 @@ HANDLE hStdout;
 
 int main()
 {
+    //Set console to  windows 1251 codepage, so it can dispaly bulgarian text
+    SetConsoleOutputCP(1251);
+
     hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
 
     //Check if console output handle is invalid
