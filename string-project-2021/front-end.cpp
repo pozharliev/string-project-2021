@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <iomanip>
 #include "front-end.h"
+#include "back-end.h"
 
 using namespace std;
 
@@ -365,7 +366,7 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 		{
 			//New game and print board
 			//newGame();
-			//printBoard(true);
+			game();
 		}
 
 		if (secondActive)
