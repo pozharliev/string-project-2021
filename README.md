@@ -3,14 +3,12 @@
 ### Word program made in vanilla C++.
 
 #### Welcome to your path of becoming wizard.
- Here at the wizard academy you are going to learn how to spell your spells. Write the word shown on the screen, before it fells out!
- 
-#### You can chose on of the 3 difficulties: Easy, Medium and Hard:
-     For Easy - Write 5 words 
-     For Medium - Write 10 words
-     For Hard - Write 15 words and write them in bulgarian
-
-   And don't forget to have fun, while playing.
+   Here at the wizard academy you are going to learn how to spell your spells.
+   Write the word shown on the screen on your notebook. After that you need to write them again and check if they are correct.
+    
+    
+#### You can chase the time and number of words in the setings tab.
+#### And don't forget to have fun, while playing.
 
 # Participants
 
@@ -34,6 +32,7 @@ git clone https://github.com/ABPozharliev19/string-project-2021.git
 # 📝 Documentation
 #### For the documentation click [here](https://codingburgas-my.sharepoint.com/:w:/g/personal/shhristov19_codingburgas_bg/EZOYy8gK-g9Gs4FeNF_dhsABV_deE1z7saQyKPNcuycoEg?e=QOS3b2)  
 #### For the presentation click [here](https://codingburgas-my.sharepoint.com/:p:/g/personal/shhristov19_codingburgas_bg/EfhC5mQMrutCm09HVZfl94gBnHYfnUJGfrNItY46hRAHyw?e=DKxXcE)  
+#### For the Test plan click [here](https://codingburgas-my.sharepoint.com/:w:/g/personal/ssivanov19_codingburgas_bg/Ed3PpU8v5IJJqLIhGOfEj74B3Ws-zaRnapIMI-1Kop-w9g?e=vVcnnU)  
 
 # :computer: Interface
 ![General UI](https://i.imgur.com/EElkS15.png)
