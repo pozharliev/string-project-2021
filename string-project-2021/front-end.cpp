@@ -11,40 +11,21 @@ using namespace std;
 HANDLE hStdoutFrontEnd;
 
 //Words in English
-string ENword[60] = {
-		"apple", "application", "apply", "appoint", "appointment", "appreciate",
-		"blame", "blanket", "blind", "block", "blood", "blow",
-		"chain", "chair", "chairman", "challenge", "chamber", "champion",
-		"description", "desert", "deserve", "design", "designer", "desire",
-		"enjoy", "enormous", "enough", "ensure", "enter", "enterprise",
-		"family", "famous", "fan", "fantasy", "far", "farm",
-		"goal", "God", "gold", "golden", "golf", "good",
-		"happen", "happy", "hard", "hardly", "hat", "hate",
-		"leave", "left", "leg", "legacy", "legal", "legend",
-		"media", "medical", "medication", "medicine", "medium", "meet"
+string ENWord[60] = {
+       "apple", "application", "apply", "appoint", "appointment", "appreciate",
+       "blame", "blanket", "blind", "block", "blood", "blow",
+       "chain", "chair", "chairman", "challenge", "chamber", "champion",
+       "description", "desert", "deserve", "design", "designer", "desire",
+       "enjoy", "enormous", "enough", "ensure", "enter", "enterprise",
+       "family", "famous", "fan", "fantasy", "far", "farm",
+       "goal", "God", "gold", "golden", "golf", "good",
+       "happen", "happy", "hard", "hardly", "hat", "hate",
+       "leave", "left", "leg", "legacy", "legal", "legend",
+       "media", "medical", "medication", "medicine", "medium", "meet"
 };
 
-//Words in bulgarian
-string BGword[60] = {
-		"ябълка", "заявление", "кандидатстване", "назначи", "назначаване", "оценявам",
-		 "вина", "одеяло", "сляп", "блок", "кръв", "удар",
-		 "верига", "стол", "председател", "предизвикателство", "стая", "шампион",
-		 "описание", "пустиня", "заслужавам", "дизайн", "дизайнер", "желание",
-		 "наслаждавай се", "огромен", "достатъчно", "осигури", "влез", "предприятие",
-		 "семейство", "известен", "фен", "фантазия", "далеч", "ферма",
-		 "цел", "Бог", "злато", "златен", "голф", "добро",
-		 "случи се", "щастлив", "твърд", "едва ли", "шапка", "мразя",
-		 "остави", "наляво", "крак", "наследство", "законно", "легенда",
-		 "медия", "медицинска", "медикаменти", "медицина", "средна", "отговарям"
-};
-
-/*
-	Varible for dificulties
-	1 - easy
-	2 - medium
-	3 - hard
-*/
-int difficulties = 1;
+int numWords = 10;
+int sec = 2000;
 
 //Get Handle of STD
 void saveStdHandle() 
@@ -76,11 +57,12 @@ void printWords()
 	cout << "    ===================================================" << endl;
 	cout << endl;
 	cout << endl;
-	cout << setw(20) << " Word in English " << setw(20) << "Word in Bulgarian" << endl;
+	cout << setw(20) << " Word in English " << endl;
 	cout << endl;
+
 	for (int i = 0; i < 60; i++)
 	{
-		cout << setw(20) << ENword[i] << setw(20) << BGword[i] << endl;
+		cout << setw(20) << ENWord[i] << endl;
 	}
 
 	cout << "   -> Back" << endl;
@@ -96,7 +78,7 @@ void printWords()
 }
 
 //Print the settings
-void printSettings(bool firstActive, bool secondActive)
+void printSettings(bool firstActive, bool secondActive, bool thirdActive)
 {
 	//Clear screen
 	goToXY(0, 0);
@@ -113,50 +95,77 @@ void printSettings(bool firstActive, bool secondActive)
 	cout << "    ===========================================================" << endl;
 
 	//Check which choice is active
-	cout << " "; if (firstActive)  cout << "-> ";  else cout << "   "; cout << "Difficulti: "; if (difficulties == 1)  cout << "Easy";  else if (difficulties == 2)  cout << "Medium"; else if (difficulties == 3)  cout << "Hard"; cout << endl;
-	cout << " "; if (secondActive)  cout << "-> ";  else cout << "   "; cout << "Back" << endl;
+	cout << " "; if (firstActive)  cout << "-> ";  else cout << "   "; cout << "Number of words: " << numWords << endl;
+	cout << " "; if (secondActive)  cout << "-> ";  else cout << "   "; cout << "How long word will be on the screen: " << sec << endl;
+	cout << " "; if (thirdActive)  cout << "-> ";  else cout << "   "; cout << "Back" << endl;
 
 	//Get ch
 	const char ch = _getch();
 
 	//Change active choice
-	if (ch == 's' || ch == 'S' || ch == 'w' || ch == 'W')
+	if (ch == 's' || ch == 'S')
 	{
-		if (secondActive)
-		{
-			printSettings(true, false);
-		}
-
 		if (firstActive)
 		{
-			printSettings(false, true);
+			printSettings(false, true, false);
+		}
+
+		if (secondActive)
+		{
+			printSettings(false, false, true);
+		}
+	
+		if (thirdActive)
+		{
+			printSettings(true, false, false);
 		}
 	}
 
+	//Change active choice
+	if (ch == 'w' || ch == 'W')
+	{
+		if (firstActive)
+		{
+			printSettings(false, false, true);
+		}
+
+		if (secondActive)
+		{
+			printSettings(true, false, false);
+		}
+
+		if (thirdActive)
+		{
+			printSettings(false, true, false);
+		}
+	}
 
 	//Check for enter
 	if (ch == '\r')
 	{
 		if (firstActive)
 		{
-			//Change setting
-			if (difficulties == 1 || difficulties == 2)
-			{	
-				difficulties++;
-			}
-			else if (difficulties == 3)
-			{
-				difficulties = 1;
-			}
+			cin >> numWords;
 
 			//Clear screen
 			system("CLS");
 
 			//print settings
-			printSettings(true, false);
+			printSettings(true, false, false);
 		}
 
 		if (secondActive)
+		{
+			cin >> sec;
+
+			//Clear screen
+			system("CLS");
+
+			//print settings
+			printSettings(false, true, false);
+		}
+
+		if (thirdActive)
 		{
 			//Clear screen
 			system("CLS");
@@ -164,7 +173,6 @@ void printSettings(bool firstActive, bool secondActive)
 			//Back to menu
 			printMenu(false, false, true, false, false, false);
 		}
-
 	}
 }
 
@@ -230,10 +238,7 @@ void printHowToPlay()
 	cout << endl;
 	cout << "   Welcome to your path of becoming wizard." << endl << "   Here at the wizard academy you are going to learn how to spell your spells." << endl;
 	cout << endl;
-	cout << "   Write the word shown on the screen, before it fells out!" << endl << "   You can chose on of the 3 difficulties: Easy, Medium and Hard:" << endl;
-	cout << "     For Easy - Write 5 words" << endl; 
-	cout << "     For Medium - Write 10 words" << endl;
-	cout << "     For Hard - Write 15 words and write them in bulgarian" << endl;
+	cout << "   Write the word shown on the screen on your notebook." << endl << "   After that you need to write them again and check if they are correct." << endl << "   You can chase the time and number of words in the setings tab. " << endl;
 	cout << endl;
 	cout << "   And don't forget to have fun, while playing." << endl << endl;
 
@@ -364,8 +369,8 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 	{
 		if (firstActive)
 		{
-			//New game and print board
-			//newGame();
+			//New game
+			system("CLS");
 			game();
 		}
 
@@ -379,7 +384,7 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 		{
 			//Print Settings
 			system("CLS");
-			printSettings(true, false);
+			printSettings(true, false, false);
 		}
 
 		if (fourthActive)
