@@ -371,7 +371,7 @@ void printMenu(bool firstActive, bool secondActive, bool thirdActive, bool fourt
 		{
 			//New game
 			system("CLS");
-			game();
+			game(numWords, sec);
 		}
 
 		if (secondActive)

@@ -1,3 +1,3 @@
 #pragma once
 
-void game();
+void game(int, int);

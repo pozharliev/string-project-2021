@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void game()
+void game(int numWords, int sec)
 {
     string word[60] = {
        "apple", "application", "apply", "appoint", "appointment", "appreciate",
@@ -23,15 +23,9 @@ void game()
        "media", "medical", "medication", "medicine", "medium", "meet"
     };
 
-    int numWords, sec;
     int index[60], spaces[60], whileSpaces[60], keep[60], j = 0, k, point = 0;
     bool endGame = false;
     string answer[60], words[60];
-
-    cout << "How many words are you looking to play with? (max 60 words)" << endl;
-    cin >> numWords;
-    cout << "How fast you want to play (answer in milliseconds)?" << endl;
-    cin >> sec;
 
     system("CLS");
 
@@ -151,13 +145,17 @@ void game()
         //cout << "answer[i] = " << answer[i] << endl;
         //cout << "words[i] = " << words[i - 1] << endl;
         if (answer[i] == words[i - 1]) {
-            cout << "Yes" << endl;
+            cout << "The word is correct" << endl;
             point++;
+            cout << endl;
         }
         else {
-            cout << "No" << endl;
+            cout << "The word is incorrect" << endl;
+            cout << endl;
         }
     }
 
     cout << "You get " << point << "/" << numWords << " points!" << endl;
+    Sleep(5000);
+    system("CLS");
 }
