@@ -43,5 +43,3 @@ git clone https://github.com/ABPozharliev19/string-project-2021.git
 - You can use _How to play_ to see how to play
 - You can use _About_ to see more about our team
 - You can use _Exit_ to exit the program
-# Usage 
-#### TBD
