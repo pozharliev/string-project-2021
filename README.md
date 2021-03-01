@@ -39,7 +39,7 @@ git clone https://github.com/ABPozharliev19/string-project-2021.git
 - You can use _New Game_ to start a new game
 - You can use _Learn the words_ to see and learn the words in both languages
 - You can use _Settings_ to choose the difficulty that you want to play on
-![Settings UI](https://i.imgur.com/DWRodVQ.png)
+![Settings UI](https://media.discordapp.net/attachments/815907279492218880/815937304370872320/unknown.png)
 - You can use _How to play_ to see how to play
 - You can use _About_ to see more about our team
 - You can use _Exit_ to exit the program
